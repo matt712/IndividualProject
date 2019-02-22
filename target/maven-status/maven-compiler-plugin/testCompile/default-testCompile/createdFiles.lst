@@ -1,0 +1,8 @@
+testBusinessLayer\testMatchUpNoteBusinesses.class
+testDomains\MatchUpNoteTest.class
+testEndPoints\testUserEndPoint.class
+testEndPoints\TestMatchUpNoteEndpoint.class
+testBusinessLayer\testUserBusinesses.class
+testDomains\UserDomainTest.class
+testRepositories\MatchupNoteRepoDBTest.class
+testRepositories\UserRepositoryDBTest.class

@@ -1,0 +1,14 @@
+com\qa\rest\MatchUpNoteEndpoint.class
+com\qa\persistence\domain\MatchUpNote.class
+com\qa\business\UserService.class
+com\qa\persistence\domain\User.class
+com\qa\rest\UserEndPoint.class
+com\qa\business\MatchUpNoteServiceImpl.class
+com\qa\persistence\repository\UserRepository.class
+com\qa\business\MatchUpNoteService.class
+com\qa\util\JSONUtil.class
+com\qa\business\UserServiceImpl.class
+com\qa\persistence\repository\MatchUpNoteDBRepository.class
+com\qa\persistence\repository\MatchUpNoteRepository.class
+com\qa\persistence\repository\UserDBRepository.class
+com\qa\rest\JAXActivator.class
