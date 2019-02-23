@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import com.qa.business.MatchUpNoteService;
 @Path("/MatchUpNote")
 public class MatchUpNoteEndpoint {
-	
+	@Inject
 	private MatchUpNoteService serv;
 	public void setService(MatchUpNoteService serv2) {
 		this.serv = serv2;

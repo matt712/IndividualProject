@@ -13,6 +13,7 @@ import com.qa.business.UserService;
 
 @Path("/user")
 public class UserEndPoint {
+	@Inject
 	private UserService serv;
 	public void setService(UserService serv2) {
 		this.serv = serv2;
