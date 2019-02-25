@@ -34,8 +34,8 @@ public class MatchupNoteRepoDBTest {
 	@Mock 
 	private Query query;
 	private JSONUtil util;
-	private static final String MOCK_DATA_ARRAY = "[{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\"}]";
-	private static final String MOCK_OBJECT = "{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\"}";
+	private static final String MOCK_DATA_ARRAY = "[{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\",\"username\":\"matt\"}]";
+	private static final String MOCK_OBJECT = "{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\",\"username\":\"matt\"}";
 	@Before
 	public void setUp() {
 		repo.setEm(em);

@@ -40,7 +40,7 @@ public class MatchUpNoteDBRepository implements MatchUpNoteRepository{
 		return util.getJSONForObject(em.find(MatchUpNote.class, id));
 	}
 	public String getMatchUpNotesForCharacter(String character) {
-		Query query = em.createQuery("Select a FROM MatchUpNote a WHERE vsCharacter =" + character);
+		Query query = em.createQuery("Select a FROM MatchUpNote a WHERE vsCharacter LIKE '%" + character + "%'");
 		Collection<MatchUpNote> notes = (Collection<MatchUpNote>) query.getResultList();
 		return util.getJSONForObject(notes);
 	}

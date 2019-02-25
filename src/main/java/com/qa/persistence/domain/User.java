@@ -1,8 +1,11 @@
 package com.qa.persistence.domain;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User 
@@ -11,6 +14,8 @@ public class User
 	private String username;
 	@Column
 	private String password;
+	@OneToMany(mappedBy="username")
+	private Set<MatchUpNote> notes;
 	public User()
 	{
 	}

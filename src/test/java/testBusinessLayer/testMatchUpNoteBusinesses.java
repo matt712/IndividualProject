@@ -16,8 +16,8 @@ import com.qa.persistence.repository.MatchUpNoteRepository;
 @RunWith(MockitoJUnitRunner.class)
 public class testMatchUpNoteBusinesses {
 
-	private static final String MOCK_DATA_ARRAY = "[{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\"}]";
-	private static final String MOCK_OBJECT = "{\"noteID\":2,\"vsCharacter\":\"Bryan\",\"contents\":\"Fear the snake edge\"}";
+	private static final String MOCK_DATA_ARRAY = "[{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\", \"username\":\"matt\"}]";
+	private static final String MOCK_OBJECT = "{\"noteID\":2,\"vsCharacter\":\"Bryan\",\"contents\":\"Fear the snake edge\", \"username\":\"matt\"}";
 	private static final String MOCK_VALUE = "test_value";
 	private static final int MOCK_ID = 1;
 	@InjectMocks
