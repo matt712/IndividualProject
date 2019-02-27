@@ -14,6 +14,8 @@ public class MatchUpNote {
 	private String vsCharacter;
 	@Column
 	private String contents;
+	@Column 
+	private String username;
 	public void setId(int idNew) {
 		this.noteID = idNew;
 	}
