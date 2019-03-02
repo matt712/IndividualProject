@@ -49,6 +49,16 @@ public class testMatchUpNoteBusinesses {
 		assertEquals(MOCK_VALUE, serv.getMatchupNotesForCharacter(MOCK_OBJECT));
 	}
 	@Test
+	public void testGetUsersNotes() {
+		Mockito.when(repo.getAllUsersNotes("matt")).thenReturn(MOCK_VALUE);
+		assertEquals(MOCK_VALUE, serv.getUsersNotes("matt"));
+	}
+	@Test
+	public void testGetUsersNotesForChar() {
+		Mockito.when(repo.getUsersNotesForChar("matt", "bob")).thenReturn(MOCK_VALUE);
+		assertEquals(MOCK_VALUE, serv.getUsersNoteForCharacter("matt", "bob"));
+	}
+	@Test
 	public void testUpdateNote() {
 		Mockito.when(repo.updateMatchUpNote(MOCK_ID, MOCK_OBJECT)).thenReturn(MOCK_VALUE);
 		assertEquals(MOCK_VALUE, serv.updateMatchupNote(MOCK_ID, MOCK_OBJECT));

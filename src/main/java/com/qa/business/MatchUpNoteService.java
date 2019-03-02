@@ -9,6 +9,8 @@ public interface MatchUpNoteService {
 	String getAMatchupNote(int id);
 	String getMatchupNotesForCharacter(String vsCharacter);
 	String getAllMatchupNotes();
+	String getUsersNotes(String user);
+	String getUsersNoteForCharacter(String user, String vsCharacter);
 	//U
 	String updateMatchupNote(int id, String note);
 	//D

@@ -48,6 +48,16 @@ public class TestMatchUpNoteEndpoint {
 		assertEquals(MOCK_VALUE2, endy.getMatchupNotesForCharacter(MOCK_VALUE));
 	}
 	@Test
+	public void testGetUserNotes() {
+		Mockito.when(serv.getUsersNotes(MOCK_VALUE2)).thenReturn(MOCK_VALUE);
+		assertEquals(MOCK_VALUE, endy.getUsersMatchupNotes(MOCK_VALUE2));
+	}
+	@Test
+	public void testGetUsersNotesForMatchup() {
+		Mockito.when(serv.getUsersNoteForCharacter(MOCK_VALUE, MOCK_VALUE2)).thenReturn(MOCK_VALUE);
+		assertEquals(MOCK_VALUE, endy.getUsersNotesForCharacter(MOCK_VALUE, MOCK_VALUE2));
+	}
+	@Test
 	public void testGetUpdateNote() {
 		Mockito.when(serv.updateMatchupNote(MOCK_ID, MOCK_VALUE)).thenReturn(MOCK_VALUE2);
 		assertEquals(MOCK_VALUE2, endy.updateMatchupNote(MOCK_ID, MOCK_VALUE));

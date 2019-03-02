@@ -35,4 +35,7 @@ public class MatchUpNote {
 	public String getContents() {
 		return contents;
 	}
+	public String getUsername() {
+		return username;
+	}
 }

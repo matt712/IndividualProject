@@ -44,6 +44,16 @@ public class MatchUpNoteDBRepository implements MatchUpNoteRepository{
 		Collection<MatchUpNote> notes = (Collection<MatchUpNote>) query.getResultList();
 		return util.getJSONForObject(notes);
 	}
+	public String getAllUsersNotes(String user) {
+		Query query = em.createQuery("SELECT a FROM MatchUpNote a WHERE username='" + user + "'");
+		Collection<MatchUpNote> notes = (Collection<MatchUpNote>) query.getResultList();
+		return util.getJSONForObject(notes);
+	}
+	public String getUsersNotesForChar(String user, String vsCharacter) {
+		Query query = em.createQuery("SELECT a FROM MatchUpNote a WHERE username='" + user + "' AND vsCharacter LIKE '%" + vsCharacter + "%'");
+		Collection<MatchUpNote> notes = (Collection<MatchUpNote>) query.getResultList();
+		return util.getJSONForObject(notes);
+	}
 	@Transactional
 	public String updateMatchUpNote(int id, String matchupNote) {
 		deleteMatchUpNote(id);

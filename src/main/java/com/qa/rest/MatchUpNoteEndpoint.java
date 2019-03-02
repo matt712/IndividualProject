@@ -41,6 +41,18 @@ public class MatchUpNoteEndpoint {
 	public String getMatchupNotesForCharacter(@PathParam("vsCharacter")String vsCharacter) {
 		return serv.getMatchupNotesForCharacter(vsCharacter);
 	}
+	@Path("/getUsersNotes/{user}")
+	@GET
+	@Produces({"application/json"})
+	public String getUsersMatchupNotes(@PathParam("user")String user) {
+		return serv.getUsersNotes(user);
+	}
+	@Path("/getUsersNoteForMatchup/{user}&{vsCharacter}")
+	@GET
+	@Produces({"application/json"})
+	public String getUsersNotesForCharacter(@PathParam("user")String user,@PathParam("vsCharacter") String vsCharacter) {
+		return serv.getUsersNoteForCharacter(user, vsCharacter);
+	}
 	@Path("/updateMatchupNote/{id}")
 	@PUT
 	@Produces({ "application/json" })
@@ -53,5 +65,4 @@ public class MatchUpNoteEndpoint {
 	public Object deleteMatchupNote(@PathParam("id") int id) {
 		return serv.deleteMatchupNote(id);
 	}
-
 }

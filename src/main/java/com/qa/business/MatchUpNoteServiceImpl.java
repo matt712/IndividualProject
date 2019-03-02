@@ -1,13 +1,20 @@
 package com.qa.business;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import javax.inject.Inject;
 
+import com.qa.persistence.domain.MatchUpNote;
 import com.qa.persistence.repository.MatchUpNoteRepository;
+import com.qa.util.JSONUtil;
 
 public class MatchUpNoteServiceImpl implements MatchUpNoteService{
 
 	@Inject
 	private MatchUpNoteRepository repo;
+	private JSONUtil util;
 	public String createMatchupNote(String note) {
 		return repo.createMatchupNote(note);
 	}
@@ -30,5 +37,10 @@ public class MatchUpNoteServiceImpl implements MatchUpNoteService{
 	public void setRepo(MatchUpNoteRepository repo2) {
 		this.repo = repo2;
 	}
-
+	public String getUsersNotes(String user) {
+		return repo.getAllUsersNotes(user);
+	}
+	public String getUsersNoteForCharacter(String user, String vsCharacter) {
+		return repo.getUsersNotesForChar(user, vsCharacter);
+	}
 }

@@ -69,6 +69,22 @@ public class MatchupNoteRepoDBTest {
 		assertEquals(MOCK_DATA_ARRAY, repo.getMatchUpNotesForCharacter("Bob"));
 	}
 	@Test
+	public void testGetUsersNotes() {
+		Mockito.when(em.createQuery(Mockito.anyString())).thenReturn(query);
+		List<MatchUpNote> notes = new ArrayList<MatchUpNote>();
+		notes.add(util.getObjectForJSON(MOCK_OBJECT, MatchUpNote.class));
+		Mockito.when(query.getResultList()).thenReturn(notes);
+		assertEquals(MOCK_DATA_ARRAY, repo.getAllUsersNotes("matt"));
+	}
+	@Test
+	public void testGetUserNotesVsCharacter() {
+		Mockito.when(em.createQuery(Mockito.anyString())).thenReturn(query);
+		List<MatchUpNote> notes = new ArrayList<MatchUpNote>();
+		notes.add(util.getObjectForJSON(MOCK_OBJECT, MatchUpNote.class));
+		Mockito.when(query.getResultList()).thenReturn(notes);
+		assertEquals(MOCK_DATA_ARRAY, repo.getUsersNotesForChar("matt", "Bob"));
+	}
+	@Test
 	public void testUpdateNote() {
 		String reply = repo.updateMatchUpNote(1, MOCK_OBJECT);
 		assertEquals(reply, "\"message\":\"Note has been updated\"");
