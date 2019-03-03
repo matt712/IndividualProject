@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService{
 	public String getAllUsers() {
 		return repo.getAllUsers();
 	}
-	public String updateUser(String username, String user) {
-		return repo.updateUser(username, user);
+	public String updateUser(String username, String newPassword) {
+		return repo.updateUser(username, newPassword);
 	}
 	public String deleteUser(String username) {
 		return repo.deleteUser(username);

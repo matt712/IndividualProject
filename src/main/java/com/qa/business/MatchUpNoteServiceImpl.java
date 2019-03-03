@@ -27,8 +27,8 @@ public class MatchUpNoteServiceImpl implements MatchUpNoteService{
 	public String getAllMatchupNotes() {
 		return repo.getAllMatchUpNotes();
 	}
-	public String updateMatchupNote(int id, String note) {
-		return repo.updateMatchUpNote(id, note);
+	public String updateMatchupNote(int id, String newContents) {
+		return repo.updateMatchUpNote(id, newContents);
 	}
 	public String deleteMatchupNote(int id) {
 		return repo.deleteMatchUpNote(id);

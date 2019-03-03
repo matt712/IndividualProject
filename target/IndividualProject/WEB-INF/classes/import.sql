@@ -4,4 +4,4 @@ INSERT INTO MATCHUPNOTE (noteID, vsCharacter, contents, username) VALUES (1, 'Ma
 INSERT INTO MATCHUPNOTE (noteID, vsCharacter, contents, username) VALUES (2, 'Katarina', 'Watch out for frametraps', 'Matt')
 INSERT INTO MATCHUPNOTE (noteID, vsCharacter, contents, username) VALUES (3, 'Kazuya', 'Sidestep left', 'Matt')
 INSERT INTO MATCHUPNOTE (noteID, vsCharacter, contents, username) VALUES (4, 'Kazuya', 'Avoid whiffing buttons', 'Matt')
-INSERT INTO MATCHUPNOTE (noteID, vsCharacter, contents, username) VALUES (5, 'Lucky Chloe', 'Don't die', 'George')
+INSERT INTO MATCHUPNOTE (noteID, vsCharacter, contents, username) VALUES (5, 'Lucky Chloe', 'Dont die', 'George')

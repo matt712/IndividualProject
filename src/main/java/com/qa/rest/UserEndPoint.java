@@ -39,8 +39,8 @@ public class UserEndPoint {
 	@Path("/updateUser/{username}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateUser(@PathParam("username") String username, String user) {
-		return serv.updateUser(username, user);
+	public String updateUser(@PathParam("username") String username, String newPassword) {
+		return serv.updateUser(username, newPassword);
 	}
 	@Path("/deleteUser/{username}")
 	@DELETE

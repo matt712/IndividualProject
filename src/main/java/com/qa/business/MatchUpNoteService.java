@@ -12,7 +12,7 @@ public interface MatchUpNoteService {
 	String getUsersNotes(String user);
 	String getUsersNoteForCharacter(String user, String vsCharacter);
 	//U
-	String updateMatchupNote(int id, String note);
+	String updateMatchupNote(int id, String newContents);
 	//D
 	String deleteMatchupNote(int id);
 	//Set method

@@ -34,9 +34,9 @@ public class UserDBRepository implements UserRepository{
 		return util.getJSONForObject(em.find(User.class, username));
 	}
 	@Transactional
-	public String updateUser(String username, String user) {
-		deleteUser(username);
-		createUser(user);
+	public String updateUser(String username, String newPassword) {
+		User user1 = em.find(User.class, username);
+		user1.setPassword(newPassword);
 		return "\"message\":\"User has been updated\"";
 	}
 	@Transactional

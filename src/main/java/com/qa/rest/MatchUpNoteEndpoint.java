@@ -56,8 +56,8 @@ public class MatchUpNoteEndpoint {
 	@Path("/updateMatchupNote/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateMatchupNote(@PathParam("id") int id, String note) {
-		return serv.updateMatchupNote(id, note);
+	public String updateMatchupNote(@PathParam("id") int id, String newContents) {
+		return serv.updateMatchupNote(id, newContents);
 	}
 	@Path("/deleteMatchUpNote/{id}")
 	@DELETE

@@ -11,7 +11,7 @@ public interface MatchUpNoteRepository
 	String getAllUsersNotes(String user);
 	String getUsersNotesForChar(String user, String vsCharacter);
 	//U
-	String updateMatchUpNote(int id, String matchupNote);
+	String updateMatchUpNote(int id, String newContents);
 	//D
 	String deleteMatchUpNote(int id);
 	

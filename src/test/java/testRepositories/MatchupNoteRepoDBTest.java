@@ -36,6 +36,7 @@ public class MatchupNoteRepoDBTest {
 	private JSONUtil util;
 	private static final String MOCK_DATA_ARRAY = "[{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\",\"username\":\"matt\"}]";
 	private static final String MOCK_OBJECT = "{\"noteID\":1,\"vsCharacter\":\"Bob\",\"contents\":\"db4 launch punishable\",\"username\":\"matt\"}";
+	private static final int MOCK_ID = 1;
 	@Before
 	public void setUp() {
 		repo.setEm(em);
@@ -86,7 +87,9 @@ public class MatchupNoteRepoDBTest {
 	}
 	@Test
 	public void testUpdateNote() {
-		String reply = repo.updateMatchUpNote(1, MOCK_OBJECT);
+		MatchUpNote aNote = util.getObjectForJSON(MOCK_OBJECT, MatchUpNote.class);
+		Mockito.when(em.find(MatchUpNote.class, MOCK_ID)).thenReturn(aNote);
+		String reply = repo.updateMatchUpNote(1, "watch out for sidesteps");
 		assertEquals(reply, "\"message\":\"Note has been updated\"");
 	}
 	@Test

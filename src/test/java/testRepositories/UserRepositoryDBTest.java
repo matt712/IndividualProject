@@ -61,6 +61,8 @@ public class UserRepositoryDBTest {
 	}
 	@Test
 	public void testUpdateUser() {
+		User aUser = util.getObjectForJSON(MOCK_OBJECT, User.class);
+		Mockito.when(em.find(User.class, "JDCR")).thenReturn(aUser);
 		String reply = repo.updateUser("JDCR", MOCK_OBJECT);
 		assertEquals(reply, "\"message\":\"User has been updated\"");
 	}

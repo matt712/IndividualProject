@@ -8,7 +8,7 @@ public interface UserRepository
 	String getAUser(String username);
 	String getAllUsers();
 	//U
-	String updateUser(String username, String user);
+	String updateUser(String username, String newPassword);
 	//D
 	String deleteUser(String username);
 }

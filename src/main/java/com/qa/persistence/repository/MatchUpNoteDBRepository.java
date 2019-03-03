@@ -55,9 +55,9 @@ public class MatchUpNoteDBRepository implements MatchUpNoteRepository{
 		return util.getJSONForObject(notes);
 	}
 	@Transactional
-	public String updateMatchUpNote(int id, String matchupNote) {
-		deleteMatchUpNote(id);
-		createMatchupNote(matchupNote);
+	public String updateMatchUpNote(int id, String newContents) {
+		MatchUpNote thisNote = em.find(MatchUpNote.class, id);
+		thisNote.setContents(newContents);
 		return "\"message\":\"Note has been updated\"";
 	}
 	@Transactional
