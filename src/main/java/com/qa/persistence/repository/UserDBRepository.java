@@ -23,7 +23,7 @@ public class UserDBRepository implements UserRepository{
 	public String createUser(String user) {
 		User aUser = util.getObjectForJSON(user, User.class);
 		em.persist(aUser);
-		return "\"message\":\"User has been created\"";
+		return "{\"message\":\"User has been created\"}";
 	}
 	public String getAllUsers() {
 		Query query = em.createQuery("Select a FROM User a");
@@ -37,7 +37,7 @@ public class UserDBRepository implements UserRepository{
 	public String updateUser(String username, String newPassword) {
 		User user1 = em.find(User.class, username);
 		user1.setPassword(newPassword);
-		return "\"message\":\"User has been updated\"";
+		return "{\"message\":\"User has been updated\"}";
 	}
 	@Transactional
 	public String deleteUser(String username) {
@@ -45,7 +45,7 @@ public class UserDBRepository implements UserRepository{
 		{
 			em.remove(em.find(User.class, username));
 		}
-		return "\"message\":\"User has been destroyed\"";
+		return "{\"message\":\"User has been destroyed\"}";
 	}
 
 	public void setEm(EntityManager em2) {

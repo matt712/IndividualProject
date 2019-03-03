@@ -29,7 +29,7 @@ public class MatchUpNoteDBRepository implements MatchUpNoteRepository{
 	public String createMatchupNote(String note) {
 		MatchUpNote aNote = util.getObjectForJSON(note, MatchUpNote.class);
 		em.persist(aNote);
-		return "\"message\":\"Note has been created\"";
+		return "{\"message\":\"Note has been created\"}";
 	}
 	public String getAllMatchUpNotes() {
 		Query query = em.createQuery("Select a FROM MatchUpNote a");
@@ -58,13 +58,13 @@ public class MatchUpNoteDBRepository implements MatchUpNoteRepository{
 	public String updateMatchUpNote(int id, String newContents) {
 		MatchUpNote thisNote = em.find(MatchUpNote.class, id);
 		thisNote.setContents(newContents);
-		return "\"message\":\"Note has been updated\"";
+		return "{\"message\":\"Note has been updated\"}";
 	}
 	@Transactional
 	public String deleteMatchUpNote(int id) {
 		if(em.contains(em.find(MatchUpNote.class, id))) {
 			em.remove(em.find(MatchUpNote.class, id));
 		}
-		return "\"message\":\"Note has been destroyed\"";
+		return "{\"message\":\"Note has been destroyed\"}";
 	}
 }

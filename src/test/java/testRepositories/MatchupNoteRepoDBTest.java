@@ -46,7 +46,7 @@ public class MatchupNoteRepoDBTest {
 	@Test
 	public void testCreateNote() {
 		String reply =repo.createMatchupNote(MOCK_OBJECT);
-		assertEquals(reply, "\"message\":\"Note has been created\"");
+		assertEquals(reply, "{\"message\":\"Note has been created\"}");
 	}
 	@Test
 	public void testGetAllNotes() {
@@ -90,11 +90,11 @@ public class MatchupNoteRepoDBTest {
 		MatchUpNote aNote = util.getObjectForJSON(MOCK_OBJECT, MatchUpNote.class);
 		Mockito.when(em.find(MatchUpNote.class, MOCK_ID)).thenReturn(aNote);
 		String reply = repo.updateMatchUpNote(1, "watch out for sidesteps");
-		assertEquals(reply, "\"message\":\"Note has been updated\"");
+		assertEquals(reply, "{\"message\":\"Note has been updated\"}");
 	}
 	@Test
 	public void testDeleteNote(){
 		String reply = repo.deleteMatchUpNote(1);
-		assertEquals(reply, "\"message\":\"Note has been destroyed\"");
+		assertEquals(reply, "{\"message\":\"Note has been destroyed\"}");
 	}
 }

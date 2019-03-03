@@ -44,7 +44,7 @@ public class UserRepositoryDBTest {
 	@Test
 	public void testCreateUser() {
 		String reply = repo.createUser(MOCK_OBJECT);
-		assertEquals(reply, "\"message\":\"User has been created\"");
+		assertEquals(reply, "{\"message\":\"User has been created\"}");
 	}
 	@Test
 	public void testGetAllUsers() {
@@ -64,11 +64,11 @@ public class UserRepositoryDBTest {
 		User aUser = util.getObjectForJSON(MOCK_OBJECT, User.class);
 		Mockito.when(em.find(User.class, "JDCR")).thenReturn(aUser);
 		String reply = repo.updateUser("JDCR", MOCK_OBJECT);
-		assertEquals(reply, "\"message\":\"User has been updated\"");
+		assertEquals(reply, "{\"message\":\"User has been updated\"}");
 	}
 	@Test
 	public void testDeleteUser() {
 		String reply = repo.deleteUser(MOCK_OBJECT);
-		assertEquals(reply, "\"message\":\"User has been destroyed\"");
+		assertEquals(reply, "{\"message\":\"User has been destroyed\"}");
 	}
 }
