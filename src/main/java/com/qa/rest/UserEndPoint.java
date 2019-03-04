@@ -36,11 +36,11 @@ public class UserEndPoint {
 	public String getAUser(@PathParam("username") String username) {
 		return serv.getAUser(username);
 	}
-	@Path("/updateUser/{username}")
+	@Path("/updateUserPassword/{username}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateUser(@PathParam("username") String username, String newPassword) {
-		return serv.updateUser(username, newPassword);
+	public String updateUserPassword(@PathParam("username") String username, String newPassword) {
+		return serv.updateUserPassword(username, newPassword);
 	}
 	@Path("/deleteUser/{username}")
 	@DELETE

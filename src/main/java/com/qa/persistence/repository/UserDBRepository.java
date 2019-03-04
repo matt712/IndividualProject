@@ -22,8 +22,12 @@ public class UserDBRepository implements UserRepository{
 	@Transactional
 	public String createUser(String user) {
 		User aUser = util.getObjectForJSON(user, User.class);
-		em.persist(aUser);
-		return "{\"message\":\"User has been created\"}";
+		if(aUser.getPassword().length()<8) {
+			return "{\"message\":\"Passwords require at least 8 characters\"}";
+		}else {
+			em.persist(aUser);
+			return "{\"message\":\"User has been created\"}";
+		}
 	}
 	public String getAllUsers() {
 		Query query = em.createQuery("Select a FROM User a");
@@ -34,7 +38,7 @@ public class UserDBRepository implements UserRepository{
 		return util.getJSONForObject(em.find(User.class, username));
 	}
 	@Transactional
-	public String updateUser(String username, String newPassword) {
+	public String updateUserPassword(String username, String newPassword) {
 		User user1 = em.find(User.class, username);
 		user1.setPassword(newPassword);
 		return "{\"message\":\"User has been updated\"}";

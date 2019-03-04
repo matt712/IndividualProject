@@ -44,8 +44,8 @@ public class testUserEndPoint {
 	}
 	@Test
 	public void updateUser() {
-		Mockito.when(serv.updateUser(MOCK_VALUE, MOCK_VALUE)).thenReturn(MOCK_VALUE2);
-		assertEquals(MOCK_VALUE2, endy.updateUser(MOCK_VALUE, MOCK_VALUE));
+		Mockito.when(serv.updateUserPassword(MOCK_VALUE, MOCK_VALUE)).thenReturn(MOCK_VALUE2);
+		assertEquals(MOCK_VALUE2, endy.updateUserPassword(MOCK_VALUE, MOCK_VALUE));
 	}
 	@Test
 	public void deleteUser() {

@@ -18,7 +18,7 @@ import com.qa.util.JSONUtil;
 @RunWith(MockitoJUnitRunner.class)
 public class testUserBusinesses {
 
-	private static final String MOCK_OBJECT1 = "{\"username\":\"JDCR\",\"password\":\"iplaymanycharacters\"}";
+	private static final String MOCK_OBJECT1 = "{\"username\":\"JDCR\",\"password\":\"Bob\"}";
 	private static final String MOCK_OBJECT2 = "{\"username\": \"KNEE\", \"password\": \"Bryan\"}";
 	private static final String MOCK_VALUE = "test_value_2";
 	private static final String MOCK_ID = "JDCR";
@@ -49,8 +49,14 @@ public class testUserBusinesses {
 	}
 	@Test
 	public void testUpdateUser() {
-		Mockito.when(repo.updateUser(MOCK_ID, MOCK_OBJECT1)).thenReturn(MOCK_OBJECT2);
-		assertEquals(MOCK_OBJECT2, serv.updateUser(MOCK_ID, MOCK_OBJECT1));
+		Mockito.when(repo.updateUserPassword(MOCK_ID, MOCK_OBJECT1)).thenReturn(MOCK_OBJECT2);
+		assertEquals(MOCK_OBJECT2, serv.updateUserPassword(MOCK_ID, MOCK_OBJECT1));
+	}
+	@Test
+	public void testUpdateUserPasswordTooShort() {
+		Mockito.when(repo.updateUserPassword(MOCK_ID, MOCK_ID)).thenReturn(MOCK_OBJECT2);
+		String reply = "{\"message\":\"Passwords require at least 8 characters\"}";
+		assertEquals(reply, serv.updateUserPassword(MOCK_ID, MOCK_ID));
 	}
 	@Test
 	public void testDeleteUser() {

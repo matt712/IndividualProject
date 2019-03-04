@@ -20,11 +20,11 @@ public class UserServiceImpl implements UserService{
 	public String getAllUsers() {
 		return repo.getAllUsers();
 	}
-	public String updateUser(String username, String newPassword) {
+	public String updateUserPassword(String username, String newPassword) {
 		if(newPassword.length()<8) {
 			return "{\"message\":\"Passwords require at least 8 characters\"}";
 		}
-		return repo.updateUser(username, newPassword);
+		return repo.updateUserPassword(username, newPassword);
 	}
 	public String deleteUser(String username) {
 		return repo.deleteUser(username);

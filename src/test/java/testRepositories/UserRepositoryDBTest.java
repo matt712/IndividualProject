@@ -32,8 +32,9 @@ public class UserRepositoryDBTest {
 	@Mock 
 	private Query query;
 	private JSONUtil util;
-	private static final String MOCK_DATA_ARRAY = "[{\"username\":\"JDCR\",\"password\":\"Bob\"}]";
-	private static final String MOCK_OBJECT = "{\"username\":\"JDCR\",\"password\":\"Bob\"}";
+	private static final String MOCK_DATA_ARRAY = "[{\"username\":\"JDCR\",\"password\":\"ArmorKing\"}]";
+	private static final String MOCK_OBJECT = "{\"username\":\"JDCR\",\"password\":\"ArmorKing\"}";
+	private static final String MOCK_OBJECT2 = "{\"username\":\"Justice\",\"password\":\"Paul\"}";
 	@Before
 	public void setUp()
 	{
@@ -47,10 +48,15 @@ public class UserRepositoryDBTest {
 		assertEquals(reply, "{\"message\":\"User has been created\"}");
 	}
 	@Test
+	public void testCreateUserShortPassword() {
+		String reply = repo.createUser(MOCK_OBJECT2);
+		assertEquals(reply, "{\"message\":\"Passwords require at least 8 characters\"}");
+	}
+	@Test
 	public void testGetAllUsers() {
 		Mockito.when(em.createQuery(Mockito.anyString())).thenReturn(query);
 		List<User> users = new ArrayList<User>();
-		users.add(new User("JDCR", "Bob"));
+		users.add(new User("JDCR", "ArmorKing"));
 		Mockito.when(query.getResultList()).thenReturn(users);
 		assertEquals(MOCK_DATA_ARRAY, repo.getAllUsers());
 	}
@@ -63,7 +69,7 @@ public class UserRepositoryDBTest {
 	public void testUpdateUser() {
 		User aUser = util.getObjectForJSON(MOCK_OBJECT, User.class);
 		Mockito.when(em.find(User.class, "JDCR")).thenReturn(aUser);
-		String reply = repo.updateUser("JDCR", MOCK_OBJECT);
+		String reply = repo.updateUserPassword("JDCR", MOCK_OBJECT);
 		assertEquals(reply, "{\"message\":\"User has been updated\"}");
 	}
 	@Test
