@@ -36,7 +36,7 @@ public class User
 	{
 		this.password = newPassword;
 	}
-	public Object getPassword() 
+	public String getPassword() 
 	{
 		return password;
 	}

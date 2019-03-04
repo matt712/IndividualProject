@@ -2,12 +2,15 @@ package com.qa.business;
 
 import javax.inject.Inject;
 
+import com.qa.persistence.domain.User;
 import com.qa.persistence.repository.UserRepository;
 import com.qa.util.JSONUtil;
 
 public class UserServiceImpl implements UserService{
 	@Inject
 	private UserRepository repo;
+	@Inject
+	private JSONUtil util;
 	public String createUser(String user) {
 		return repo.createUser(user);
 	}
@@ -18,6 +21,9 @@ public class UserServiceImpl implements UserService{
 		return repo.getAllUsers();
 	}
 	public String updateUser(String username, String newPassword) {
+		if(newPassword.length()<8) {
+			return "{\"message\":\"Passwords require at least 8 characters\"}";
+		}
 		return repo.updateUser(username, newPassword);
 	}
 	public String deleteUser(String username) {

@@ -18,8 +18,8 @@ import com.qa.util.JSONUtil;
 @RunWith(MockitoJUnitRunner.class)
 public class testUserBusinesses {
 
-	private static final String MOCK_OBJECT1 = "{\"username\":\"JDCR\",\"password\":\"Bob\"}";
-	private static final String MOCK_OBJECT2 = "{\"username\":\"KNEE\",\"password\":\"Bryan\"}";
+	private static final String MOCK_OBJECT1 = "{\"username\":\"JDCR\",\"password\":\"iplaymanycharacters\"}";
+	private static final String MOCK_OBJECT2 = "{\"username\": \"KNEE\", \"password\": \"Bryan\"}";
 	private static final String MOCK_VALUE = "test_value_2";
 	private static final String MOCK_ID = "JDCR";
 	@InjectMocks
@@ -34,8 +34,8 @@ public class testUserBusinesses {
 	}
 	@Test
 	public void testCreateUser() {
-		Mockito.when(repo.createUser(MOCK_ID)).thenReturn(MOCK_VALUE);
-		assertEquals(MOCK_VALUE, serv.createUser(MOCK_ID));
+		Mockito.when(repo.createUser(MOCK_OBJECT1)).thenReturn(MOCK_VALUE);
+		assertEquals(MOCK_VALUE, serv.createUser(MOCK_OBJECT1));
 	}
 	@Test
 	public void testGetAllUsers() {
