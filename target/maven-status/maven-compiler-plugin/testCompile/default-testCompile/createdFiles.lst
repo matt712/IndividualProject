@@ -5,4 +5,5 @@ testEndPoints\TestMatchUpNoteEndpoint.class
 testBusinessLayer\testUserBusinesses.class
 testDomains\UserDomainTest.class
 testRepositories\MatchupNoteRepoDBTest.class
+testUtilities\TestHash.class
 testRepositories\UserRepositoryDBTest.class

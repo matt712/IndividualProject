@@ -1,4 +1,6 @@
 package com.qa.rest;
+import java.security.NoSuchAlgorithmException;
+
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -21,8 +23,14 @@ public class UserEndPoint {
 	@Path("/createUser")
 	@POST
 	@Produces({ "application/json" })
-	public String createUser(String user) {
+	public String createUser(String user) throws NoSuchAlgorithmException {
 		return serv.createUser(user);
+	}
+	@Path("/LoginUser")
+	@POST
+	@Produces({"application/json"})
+	public String loginUser(String user) throws NoSuchAlgorithmException {
+		return serv.loginUser(user);
 	}
 	@Path("/getAllUsers")
 	@GET
@@ -39,7 +47,7 @@ public class UserEndPoint {
 	@Path("/updateUserPassword/{username}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateUserPassword(@PathParam("username") String username, String newPassword) {
+	public String updateUserPassword(@PathParam("username") String username, String newPassword) throws NoSuchAlgorithmException {
 		return serv.updateUserPassword(username, newPassword);
 	}
 	@Path("/deleteUser/{username}")

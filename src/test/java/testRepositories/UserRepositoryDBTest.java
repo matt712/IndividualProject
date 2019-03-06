@@ -48,11 +48,6 @@ public class UserRepositoryDBTest {
 		assertEquals(reply, "{\"message\":\"User has been created\"}");
 	}
 	@Test
-	public void testCreateUserShortPassword() {
-		String reply = repo.createUser(MOCK_OBJECT2);
-		assertEquals(reply, "{\"message\":\"Passwords require at least 8 characters\"}");
-	}
-	@Test
 	public void testGetAllUsers() {
 		Mockito.when(em.createQuery(Mockito.anyString())).thenReturn(query);
 		List<User> users = new ArrayList<User>();

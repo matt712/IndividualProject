@@ -1,6 +1,9 @@
 package testEndPoints;
 
 import static org.junit.Assert.*;
+
+import java.security.NoSuchAlgorithmException;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -28,7 +31,7 @@ public class testUserEndPoint {
 		endy.setService(serv);
 	}
 	@Test
-	public void testCreateUser() {
+	public void testCreateUser() throws NoSuchAlgorithmException {
 		Mockito.when(serv.createUser(MOCK_VALUE)).thenReturn(MOCK_VALUE2);
 		assertEquals(MOCK_VALUE2, endy.createUser(MOCK_VALUE));
 	}
@@ -43,7 +46,7 @@ public class testUserEndPoint {
 		assertEquals(MOCK_VALUE2, endy.getAUser(MOCK_VALUE));
 	}
 	@Test
-	public void updateUser() {
+	public void updateUser() throws NoSuchAlgorithmException {
 		Mockito.when(serv.updateUserPassword(MOCK_VALUE, MOCK_VALUE)).thenReturn(MOCK_VALUE2);
 		assertEquals(MOCK_VALUE2, endy.updateUserPassword(MOCK_VALUE, MOCK_VALUE));
 	}
