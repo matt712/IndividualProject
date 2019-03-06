@@ -16,6 +16,10 @@ public class MatchUpNoteServiceImpl implements MatchUpNoteService{
 	private MatchUpNoteRepository repo;
 	private JSONUtil util;
 	public String createMatchupNote(String note) {
+		util = new JSONUtil();
+		MatchUpNote newChar = util.getObjectForJSON(note, MatchUpNote.class);
+		newChar.setVsCharacter(newChar.getVsCharacter().toLowerCase());
+		note = util.getJSONForObject(newChar);
 		return repo.createMatchupNote(note);
 	}
 	public String getAMatchupNote(int id) {
@@ -41,6 +45,7 @@ public class MatchUpNoteServiceImpl implements MatchUpNoteService{
 		return repo.getAllUsersNotes(user);
 	}
 	public String getUsersNoteForCharacter(String user, String vsCharacter) {
+		vsCharacter = vsCharacter.toLowerCase();
 		return repo.getUsersNotesForChar(user, vsCharacter);
 	}
 }
