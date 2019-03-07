@@ -25,6 +25,8 @@ public class testUserBusinesses {
 	private static final String MOCK_OBJECT1 = "{\"username\":\"JDCR\",\"password\":\"iplaybob\"}";
 	private static final String MOCK_OBJECT2 = "{\"username\": \"KNEE\", \"password\": \"iplayBryan\"}";
 	private static final String MOCK_VALUE = "test_value_2";
+	private static final String MOCK_RESPONSE = "{\"message\":\"Correct Password\"}";
+	private static final String MOCK_RESPONSE2 = "{\"message\":\"Incorrect Password\"}";
 	private static final String MOCK_ID = "JDCR";
 	@InjectMocks
 	private UserServiceImpl serv;
@@ -41,10 +43,20 @@ public class testUserBusinesses {
 	@Test
 	public void testCreateUser() throws NoSuchAlgorithmException {
 		Mockito.when(hash.createHash(Mockito.anyString())).thenReturn("iplaybob");
-		System.out.println(hash.createHash("iplaybob"));
 		Mockito.when(repo.createUser(MOCK_OBJECT1)).thenReturn(MOCK_VALUE);
-		System.out.println(repo.createUser(MOCK_OBJECT1));
 		assertEquals(MOCK_VALUE, serv.createUser(MOCK_OBJECT1));
+	}
+	@Test
+	public void testLoginUser() throws NoSuchAlgorithmException {
+		Mockito.when(hash.createHash(Mockito.anyString())).thenReturn("iplayBryan");
+		Mockito.when(repo.getAUser("KNEE")).thenReturn(MOCK_OBJECT2);
+		assertEquals(MOCK_RESPONSE, serv.loginUser(MOCK_OBJECT2));
+	}
+	@Test
+	public void testLoginFail() throws NoSuchAlgorithmException {
+		Mockito.when(hash.createHash(Mockito.anyString())).thenReturn("iplaybob");
+		Mockito.when(repo.getAUser("JDCR")).thenReturn(MOCK_OBJECT2);
+		assertEquals(MOCK_RESPONSE2, serv.loginUser(MOCK_OBJECT1));
 	}
 	@Test
 	public void testGetAllUsers() {

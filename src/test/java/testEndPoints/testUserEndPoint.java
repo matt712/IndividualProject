@@ -35,6 +35,11 @@ public class testUserEndPoint {
 		Mockito.when(serv.createUser(MOCK_VALUE)).thenReturn(MOCK_VALUE2);
 		assertEquals(MOCK_VALUE2, endy.createUser(MOCK_VALUE));
 	}
+	@Test 
+	public void loginUser() throws NoSuchAlgorithmException {
+		Mockito.when(serv.loginUser(MOCK_VALUE)).thenReturn(MOCK_VALUE2);
+		assertEquals(MOCK_VALUE2, endy.loginUser(MOCK_VALUE));
+	}
 	@Test
 	public void getAllUsers() {
 		Mockito.when(serv.getAllUsers()).thenReturn(MOCK_VALUE);
